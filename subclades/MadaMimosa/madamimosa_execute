@@ -1,0 +1,17 @@
+begin mrbayes;
+	set autoclose=yes nowarnings=yes;
+[	set usebeagle=yes beagledevice=cpu beagleprecision=double;]
+[	set beaglescaling=dynamic beaglesse=yes;]
+        execute MadaMimosa_alignment40.nex;
+	lset nst=6 rates=gamma;
+	constraint mimosa_Madagascar hard = Mimosa_waterlotii_Rakotomalale52 Mimosa_vilersii_Labat3020 Mimosa_menabeensis_SF12565 Mimosa_suffruticosa_Labat3549 Mimosa_manomboensis_Labat3628 Mimosa_haavoa_P00701838 Mimosa_dumetaria_P00547620 Mimosa_capuronii_P00547624 Mimosa_ikondensis_P00460625 Mimosa_kitrokala_P00460628 Mimosa_savokaea_P00460670 Mimosa_uncinata_P00367680 Mimosa_onilahensis_P030062 Mimosa_rokatavensis_P00460668 Mimosa_psoralea_P02972480 Mimosa_hildebrandtii_P00460575 Mimosa_mahilakensis_P00547619 Mimosa_ibitiensis_EK188 Mimosa_andringitrensis_Humbert13493 Mimosa_latispinosa_EK269 Mimosa_grandidieri_EK228 Mimosa_volubilis_EK407 Mimosa_lingvatouana_EK355 Mimosa_planitei_LN1875 Mimosa_nossibiensis_DuPuyM899 Mimosa_hafomantsina_Lewis2138;
+	constraint mimosa_outgroup hard = Mimosa_mossambicensis_Brummitt8896 Mimosa_himalayana_P02764346 Mimosa_rubicaulis_Williams8191;
+	calibrate mimosa_Madagascar=fixed(10);
+	prset topologypr=constraints(mimosa_Madagascar,mimosa_outgroup);
+	prset brlenspr=clock:uniform;
+	prset clockvarpr=igr;
+	showmodel;
+	mcmc ngen=50000000 samplefreq=1000 file=madamimosa.nex1;
+	mcmc file=madamimosa.nex2;
+	sumt;
+end;

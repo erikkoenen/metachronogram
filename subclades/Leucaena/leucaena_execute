@@ -1,0 +1,17 @@
+begin mrbayes;
+	set autoclose=yes nowarnings=yes;
+[	set usebeagle=yes beagledevice=cpu beagleprecision=double;]
+[	set beaglescaling=dynamic beaglesse=yes;]
+        execute Leucaena_alignment.nex;
+	lset nst=6 rates=gamma;
+	constraint leucaena hard = Leucaena_alvadorensis Leucaena_collinsii Leucaena_confertiflora_adenotheloidia Leucaena_cruziana Leucaena_cuspidata Leucaena_diversifolia Leucaena_esculenta Leucaena_greggii Leucaena_involucrata Leucaena_lanceolata_lanceolata Leucaena_lempirana Leucaena_leucocephala_leucocephala Leucaena_macrophylla_macrophylla Leucaena_magnifica Leucaena_matudae Leucaena_multicapitula Leucaena_pallida Leucaena_pueblana Leucaena_pulverulenta Leucaena_retusa Leucaena_shannonii Leucaena_trichandra Leucaena_trichodes Leucaena_zacapana;
+	constraint desmanthus_schleinitz hard = Desmanthus_acuminatus_CEH2314 Desmanthus_balsensis_FHO45_94_C5 Desmanthus_illinoiensis_RNAseq Desmanthus_leptophyllus_CEH2035 Desmanthus_virgatus_JRIW26551 Kanaloa_kahoolawensis_Lorence_7380 Schleinitzia_insularum_MWC8390 Schleinitzia_megaladenia_Piamos_Tidano_46708 Schleinitzia_novoguineensis_Chaplin_57_84;
+	calibrate leucaena=fixed(10);
+	prset topologypr=constraints(leucaena,desmanthus_schleinitz);
+	prset brlenspr=clock:uniform;
+	prset clockvarpr=igr;
+	showmodel;
+	mcmc ngen=50000000 samplefreq=1000 file=leucaena.nex1;
+	mcmc file=leucaena.nex2;
+	sumt;
+end;

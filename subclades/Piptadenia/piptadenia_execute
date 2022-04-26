@@ -1,0 +1,16 @@
+begin mrbayes;
+	set autoclose=yes nowarnings=yes;
+[	set usebeagle=yes beagledevice=cpu beagleprecision=double;]
+[	set beaglescaling=dynamic beaglesse=yes;]
+        execute Piptadenia_Simon_alignment.nex;
+	lset nst=6 rates=gamma;
+	constraint piptadenia hard = Piptadenia_adiantoides_Simon726_CEN488 Piptadenia_buchtienii Piptadenia_flava Piptadenia_floribunda Piptadenia_gonoacantha_Simon735_CEN492 Piptadenia_irwinii Piptadenia_macradenia Piptadenia_paniculata Piptadenia_peruviana Piptadenia_pteroclada Piptadenia_robusta Piptadenia_sp_VRS46_CEN631 Piptadenia_stipulacea;
+	calibrate piptadenia=fixed(20);
+	prset topologypr=constraints(piptadenia);
+	prset brlenspr=clock:uniform;
+	prset clockvarpr=igr;
+	showmodel;
+	mcmc ngen=30000000 samplefreq=1000 file=piptadenia.nex1;
+	mcmc file=piptadenia.nex2;
+	sumt;
+end;

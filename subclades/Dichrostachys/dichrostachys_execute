@@ -1,0 +1,17 @@
+begin mrbayes;
+	set autoclose=yes nowarnings=yes;
+[	set usebeagle=yes beagledevice=cpu beagleprecision=double;]
+[	set beaglescaling=dynamic beaglesse=yes;]
+        execute Dichrostachys_alignment75.nex;
+	lset nst=6 rates=gamma;
+	constraint dichrostachys_Madagascar hard = Dichrostachys_tenuifolia_Labat3579 Dichrostachys_arborescens_Labat3553 Dichrostachys_dumetaria_P00334028 Alantsilodendron_humbertii_P00209050 Dichrostachys_sp3_P00460391 Dichrostachys_scottiana_Phil3539 Alantsilodendron_mahafalense_Labat3630 Alantsilodendron_pilosum_EK203 Gagnebina_commersoniana_EK224 Dichrostachys_unijuga_EK242 Alantsilodendron_glomeratum_EK257 Dichrostachys_sp2_EK282 Dichrostachys_myriophylla_EK301 Dichrostachys_richardiana_EK360 Alantsilodendron_avillosum_EK409 Dichrostachys_akataensis_EK410 Dichrostachys_pervilleana_EK414 Alantsilodendron_brevipes Dichrostachys_paucifoliolata_4157 Dichrostachys_venosa_ML4339 Gagnebina_bakoliae Gagnebina_bernieriana Gagnebina_calcicola_Luckow4441 Gagnebina_pterocarpa;
+	constraint dichrostachys_outgroup hard = Dichrostachys_santapaui_Sebastine13612 Dichrostachys_dehiscens_Miller1609613 Dichrostachys_cinerea_OM256 Dichrostachys_kirkii_Thulin4581;
+	calibrate dichrostachys_Madagascar=fixed(10);
+	prset topologypr=constraints(dichrostachys_Madagascar,dichrostachys_outgroup);
+	prset brlenspr=clock:uniform;
+	prset clockvarpr=igr;
+	showmodel;
+	mcmc ngen=50000000 samplefreq=1000 file=dichrostachys.nex1;
+	mcmc file=dichrostachys.nex2;
+	sumt;
+end;
