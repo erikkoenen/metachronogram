@@ -26,5 +26,5 @@ This repository contains the python script "graft_crown_clades.py", which can be
     MRCA2 = taxon3 taxon4 taxon5	<path_to_subtree_newick2>
     etc. 
     
-    usage: python graft_trees.py <backbone_tree_file> <MRCA_subtree_file> output
+    usage: python graft_trees.py <backbone_tree_file> <MRCA_subtree_file> <output>
     example: python graft_trees.py LPWG2017_BEAST.trees MRCA_file.txt Legume_glomograms.tre
