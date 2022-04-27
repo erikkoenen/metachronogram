@@ -32,7 +32,7 @@ This repository contains the python script "graft_crown_clades.py", which can be
 
 
 
-**Files included in this repository**
+**Files included in this repository:**
 
 The folder **subclades** contains separate folders for each clade with all subtrees that are grafted onto the backbone, and the alignments and MrBayes execution files or BEAST xml files.
 
@@ -48,7 +48,7 @@ The folder **subclades** contains separate folders for each clade with all subtr
 
 
 
-**References**
+**References:**
 
 Funk VA, & CD Specht. (2007). Meta-trees: grafting for a global perspective. Proceedings of the Biological Society of Washington, 120(2), 232-240.
 
