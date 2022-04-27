@@ -30,6 +30,7 @@ This repository contains the python script "graft_crown_clades.py", which can be
     usage: python graft_trees.py <backbone_tree_file> <MRCA_subtree_file> <output>
     example: python graft_trees.py LPWG2017_BEAST.trees MRCA_file.txt Legume_glomograms.tre
 
+
 **Files included in this repository**
 
 The folder **subclades** contains separate folders for each clade with all subtrees that are grafted onto the backbone, and the alignments and MrBayes execution files or BEAST xml files.
@@ -46,6 +47,7 @@ The folder **subclades** contains separate folders for each clade with all subtr
 
 
 **References**
+
 Funk VA, & CD Specht. (2007). Meta-trees: grafting for a global perspective. Proceedings of the Biological Society of Washington, 120(2), 232-240.
 
 Marazzi B, & MJ Sanderson. (2010). Large‐scale patterns of diversification in the widespread legume genus Senna and the evolutionary role of extrafloral nectaries. Evolution: International Journal of Organic Evolution, 64(12), 3570-3592.
