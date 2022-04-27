@@ -28,7 +28,7 @@ This repository contains the python script "graft_crown_clades.py", which can be
     etc. 
     
     usage: python graft_trees.py <backbone_tree_file> <MRCA_subtree_file> <output>
-    example: python graft_trees.py LPWG2017_BEAST.trees MRCA_file.txt Legume_glomograms.tre
+    example: python graft_trees.py sd100_concat_FLC6.subsampled100.tre.relabeled MRCA_file mimo_metachronograms100.tre
 
 
 
