@@ -7,7 +7,7 @@ This repository contains the python script "graft_crown_clades.py", which can be
     This script is intended to graft ultrametric subtrees into an ultrametric (time-calibrated)
     backbone phylogeny as a means to combine different phylogenetic datasets (e.g. grafting 
     Sanger-sequenced species level trees onto an NGS backbone) into a so-called meta-tree (sensu 
-    Funk & Specht, 2007) or glomogram (sensu Soltis et al., 2009), but since the procedure used 
+    Funk & Specht, 2007) or glomogram (sensu Marazzi et al., 2010), but since the procedure used 
     here is different and relies on ultrametric/dated trees, we refer to them as metachronograms. 
    
 **Instructions:**
@@ -43,3 +43,11 @@ The folder **subclades** contains separate folders for each clade with all subtr
 **mimo_metachronograms100.tre.relabeled** is the example output file but with tip labels of grafted subtrees relabeled with pxrlt (from the Phyx package).
 
 **sd100_concat_FLC6.subsampled100.tre.relabeled** contains 100 time-calibrated backbone trees from a posterior sample of a BEAST analysis, onto which the subtrees are grafted.
+
+
+**References**
+Funk VA, & CD Specht. (2007). Meta-trees: grafting for a global perspective. Proceedings of the Biological Society of Washington, 120(2), 232-240.
+
+Marazzi B, & MJ Sanderson. (2010). Large‐scale patterns of diversification in the widespread legume genus Senna and the evolutionary role of extrafloral nectaries. Evolution: International Journal of Organic Evolution, 64(12), 3570-3592.
+
+Ringelberg JJ, EJM Koenen, B Sauter, A Aebli, J Rando, JR Iganci, LPG Queiroz, DJ Murphy, M Gaudeul, A Bruneau, M Luckow, GP Lewis, J Miller, MF Simon, L Jordão, M Morales, O Loiseau, RT Pennington, KG Dexter, NE Zimmermann & CE Hughes (in prep.) Precipitation is the main axis of tropical phylogenetic turnover across space and time.
